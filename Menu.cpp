@@ -118,7 +118,7 @@ void Menu::InserisciFunzione()
             do //Conferma di creazione più controllo input
             {
                 conferma = -1;
-                cout << "Confermi?(1=Sì / 0=No):" << endl;
+                cout << "Confermi?(1=Si / 0=No):" << endl;
                 getline(cin, stdconferma);
                 stdconferma2 = stdconferma.c_str();
                 if (CheckValueInt(stdconferma) == 1)
@@ -165,7 +165,7 @@ void Menu::InserisciFunzione()
             do //Conferma della creazione con controllo su input
             {
                 conferma = -1;
-                cout << "Confermi?(1=Sì / 0=No):" << endl;
+                cout << "Confermi?(1=Si / 0=No):" << endl;
                 getline(cin, stdconferma);
                 stdconferma2 = stdconferma.c_str();
                 if (CheckValueInt(stdconferma) == 1)
@@ -211,7 +211,7 @@ void Menu::InserisciFunzione()
             do //Salvataggio della nuova funzione con controllo
             {
                 conferma = -1;
-                cout << "Confermi?(1=Sì / 0=No):" << endl;
+                cout << "Confermi?(1=Si / 0=No):" << endl;
                 getline(cin, stdconferma);
                 stdconferma2 = stdconferma.c_str();
                 if (CheckValueInt(stdconferma) == 1)
@@ -270,7 +270,7 @@ void Menu::EliminaFunzione(int id)
     do //Controllo di conferma
     {
         conferma = -1;
-        cout << "Confermi?(1=Sì / 0=No):" << endl;
+        cout << "Confermi?(1=Si / 0=No):" << endl;
         getline(cin, stdconferma);
         stdconferma2 = stdconferma.c_str();
         if (CheckValueInt(stdconferma) == 1)
@@ -310,7 +310,7 @@ void Menu::EliminaTutte()
 */
 int Menu::CheckValueInt(string cstring)
 {
-    if(cstring!="\n")
+    if(cstring=="")
     {
         cout << "Valore inserito errato" << endl;
         return -1;
@@ -323,7 +323,6 @@ int Menu::CheckValueInt(string cstring)
             return -1;
         }
     }
-    cout <<"["<<cstring<<"]"<<endl;
     return 1;
 }
 
@@ -334,7 +333,7 @@ int Menu::CheckValueInt(string cstring)
 */
 double Menu::CheckValueDouble(string cstring)
 {
-    if(cstring!="\n")
+    if(cstring=="")
     {
         cout << "Valore inserito errato" << endl;
         return -1;
