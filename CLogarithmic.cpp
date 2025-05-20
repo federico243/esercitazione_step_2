@@ -1,5 +1,5 @@
 /*! @file CLogarithmic.cpp
-	@brief Implementetion of class logarithmic
+	@brief Implementetion of class Logarithmic
 	@author Federico Maria Biasioli Loris Costanzo
 */
 #include "CLogarithmic.h"
@@ -20,7 +20,7 @@ Logarithmic::Logarithmic(double b_coefficient, double k_coefficient)
 	{	
 		ErrorMessage("Error with b_coefficient (b_coefficient can't be <=0)");
 		Reset();
-		exit(-1);
+		return;
 	}
 	SetLogarithmic(b_coefficient, k_coefficient);
 }
@@ -135,10 +135,9 @@ void Logarithmic::WarningMessage(const char *string) {
  */ 
 void Logarithmic::Dump() {
 	if (b_coeff == -1) {
-		cout << "Uninitialized Power" << endl;
+		cout << "Uninitialized Logarithmic" << endl;
 		return;
 	}
-	cout << "Base del logaritmo: " << b_coeff << endl;
-    cout << "Coefficiente del logaritmo: " << k_coeff <<endl;
+	cout << k_coeff << "Log" << b_coeff << "(x)"<< endl;
 	cout << endl;
 }
