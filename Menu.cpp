@@ -1,4 +1,4 @@
-/*! @file FunctionManager.cpp
+/*! @file Menu.cpp
     @brief Implementazione del gestore di funzioni
     @author Federico Maria Biasioli Loris Costanzo
 */
@@ -7,13 +7,13 @@
 #include <iostream>
 using namespace std;
 
-FunctionManager::FunctionManager() {}
+Menu::Menu() {}
 
-FunctionManager::~FunctionManager() {
+Menu::~Menu() {
     EliminaTutte();
 }
 
-void FunctionManager::VisualizzaFunzioni() const {
+void Menu::VisualizzaFunzioni() const {
     if (functions.empty()) {
         cout << "Nessuna funzione presente.\n"<< endl;
         return;
@@ -26,7 +26,7 @@ void FunctionManager::VisualizzaFunzioni() const {
     }
 }
 
-void FunctionManager::InserisciFunzione() {
+void Menu::InserisciFunzione() {
     int scelta=-1;
     int conferma;
     Function* nuova = nullptr;
@@ -114,7 +114,7 @@ void FunctionManager::InserisciFunzione() {
     }while (scelta != 0);
 }
 
-void FunctionManager::EliminaFunzione(int id) {
+void Menu::EliminaFunzione(int id) {
     VisualizzaFunzioni();
     int controllo = 0;
     int conferma;
@@ -142,7 +142,7 @@ void FunctionManager::EliminaFunzione(int id) {
     }
 }
 
-void FunctionManager::EliminaTutte() {
+void Menu::EliminaTutte() {
     for (Function* f : functions) {
         delete f;
     }
@@ -150,7 +150,7 @@ void FunctionManager::EliminaTutte() {
     cout << "Tutte le funzioni sono state eliminate."<< endl;
 }
 
-void FunctionManager::SelezionaFunzione() {
+void Menu::SelezionaFunzione() {
     int id;
     int controllo;
     cout << "Inserisci ID della funzione: "<< endl;
@@ -173,7 +173,7 @@ void FunctionManager::SelezionaFunzione() {
     cout << "Risultato: " << risultato << endl;
 }
 
-void FunctionManager::MenuPrincipale() {
+void Menu::MenuPrincipale() {
     int scelta = -1;
     do {
         cout << "\n========== MENU PRINCIPALE ==========\n"

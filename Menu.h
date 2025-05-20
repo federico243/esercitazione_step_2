@@ -1,4 +1,4 @@
-/*! @file FunctionManager.h
+/*! @file Menu.h
     @brief Gestore delle funzioni matematiche
     @author Federico Maria Biasioli Loris Costanzo
 */
@@ -12,9 +12,9 @@
 #include "CPower.h"
 #include "CPolinomial.h"
 
-/// @class FunctionManager
+/// @class Menu
 /// @brief Gestisce una lista dinamica di funzioni matematiche
-class FunctionManager
+class Menu
 {
 private:
     std::vector<Function *> functions;
@@ -22,8 +22,8 @@ private:
 public:
     /// @name Constructors and Destructor
     /// @{
-    FunctionManager();
-    ~FunctionManager();
+    Menu();
+    ~Menu();
     /// @}
 
     /// @name Functions
