@@ -113,7 +113,6 @@ double Power::GetValue(double in){
         cout<<" Zero to the zero is an indeterminate form "<<endl;
         return 0;
     }
-    int i;
     result=k_coeff*pow(x,e_coeff);
 	return result;
 }

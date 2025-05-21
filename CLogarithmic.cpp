@@ -135,7 +135,7 @@ void Logarithmic::WarningMessage(const char *string) {
  */ 
 void Logarithmic::Dump() {
 	if (b_coeff == -1) {
-		cout << "Uninitialized Logarithmic" << endl;
+		cout << "Uninitialized Logarithmic\n" << endl;
 		return;
 	}
 	cout << k_coeff << "Log" << b_coeff << "(x)"<< endl;

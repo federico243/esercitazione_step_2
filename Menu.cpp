@@ -35,7 +35,7 @@ void Menu::VisualizzaFunzioni() const
         return;
     }
     cout << "Funzioni disponibili:" << endl;
-    for (int i = 0; i < functions.size(); i++)
+    for (int i = 0; i < (int)functions.size(); i++)
     {
         cout << "Function numero [" << i << "]: " << endl;
         functions[i]->Dump();
@@ -83,7 +83,7 @@ void Menu::InserisciFunzione()
         {
         case 0:
         {
-            cout << "Uscita dall'inserimento." << endl;
+            cout << "Uscita dall'inserimento.\n" << endl;
             break;
         }
         case 1:
@@ -97,6 +97,8 @@ void Menu::InserisciFunzione()
                 getline(cin, stdgrado);
                 stdgrado2 = stdgrado.c_str();
                 result = CheckValueInt(stdgrado);
+                if(atof(stdgrado2)<0)
+                        result=-1;
             } while (result == -1);
             grado = atoi(stdgrado2);
             double *pol_coeff = new double[grado + 1];
@@ -127,14 +129,13 @@ void Menu::InserisciFunzione()
             if (conferma) // aggiunta della nuova funzione nella lista
             {
                 functions.push_back(nuova);
-                cout << "Funzione registrata." << endl;
+                cout << "Funzione registrata.\n" << endl;
             }
             else
             {
                 delete nuova;
-                cout << "Funzione scartata." << endl;
+                cout << "Funzione scartata.\n" << endl;
             }
-            delete pol_coeff;
             break;
         }
         case 2:
@@ -174,12 +175,12 @@ void Menu::InserisciFunzione()
             if (conferma)
             { // Inserimento nella lista della nuova funzione
                 functions.push_back(nuova);
-                cout << "Funzione registrata." << endl;
+                cout << "Funzione registrata.\n" << endl;
             }
             else
             {
                 delete nuova;
-                cout << "Funzione scartata." << endl;
+                cout << "Funzione scartata.\n" << endl;
             }
             break;
         }
@@ -220,12 +221,12 @@ void Menu::InserisciFunzione()
             if (conferma)
             { // Copia della nuova funzione.
                 functions.push_back(nuova);
-                cout << "Funzione registrata." << endl;
+                cout << "Funzione registrata.\n" << endl;
             }
             else
             {
                 delete nuova;
-                cout << "Funzione scartata." << endl;
+                cout << "Funzione scartata.\n" << endl;
             }
             break;
         }
@@ -418,6 +419,9 @@ void Menu::SelezionaFunzione()
  */
 void Menu::MenuPrincipale()
 {
+    cout<<"N.B. Per separare la parte decimale usare il punto e non la virgola."<<endl;
+    cout<<"N.B. Per usare il numero di nepero inserire: 2.718"<<endl;
+    cout<<"N.B. Per usare il pgreco inserire: 3.141"<<endl;
     string stdscelta; // Inizio variabili di controllo stringhe
     const char *stdscelta2;
     string stdid;
@@ -488,7 +492,12 @@ void Menu::MenuPrincipale()
             EliminaTutte();
             break;
         case 5:
-            SelezionaFunzione();
+            if (functions.empty())
+            {
+                cout << "Nessuna funzione presente" << endl;
+            }
+            else
+                SelezionaFunzione();
             break;
         default:
             cout << "Scelta non valida.\n";
