@@ -320,11 +320,13 @@ int Menu::CheckValueInt(string cstring)
     {
         if (counter != 0 && c == '-')
         {
-            if (!isdigit(c))
-            {
-                cout << "Valore inserito errato" << endl;
-                return -1;
-            }
+            cout << "Valore inserito errato" << endl;
+            return -1;
+        }
+        if (!isdigit(c)&&(counter==0&&c!='-'))
+        {
+            cout << "Valore inserito errato" << endl;
+            return -1;
         }
         counter++;
     }
@@ -348,11 +350,13 @@ double Menu::CheckValueDouble(string cstring)
     {
         if (counter != 0 && c == '-')
         {
-            if (!isdigit(c) && c != '.')
-            {
-                cout << "Valore inserito errato" << endl;
-                return -1;
-            }
+            cout << "Valore inserito errato" << endl;
+            return -1;
+        }
+        if (!isdigit(c)&&(counter==0&&c!='-')&&c!='.')
+        {
+            cout << "Valore inserito errato" << endl;
+            return -1;
         }
         counter++;
     }

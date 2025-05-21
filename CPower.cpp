@@ -3,6 +3,7 @@
     @author Federico Maria Biasioli Loris Costanzo
 */
 
+#include <cmath>
 #include "CPower.h"
 
 /// @brief defaul constructor
@@ -113,10 +114,6 @@ double Power::GetValue(double in){
         return 0;
     }
     int i;
-    for(i=1;i<e_coeff;i++)
-    {
-        x=x*in;
-    }
-    result=x*k_coeff;
+    result=k_coeff*pow(x,e_coeff);
 	return result;
 }
