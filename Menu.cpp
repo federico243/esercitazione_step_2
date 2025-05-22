@@ -319,12 +319,12 @@ int Menu::CheckValueInt(string cstring)
     }
     for (char c : cstring)
     {
-        if (counter != 0 && c == '-')
+        if (counter != 0 && !isdigit(c))
         {
             cout << "Valore inserito errato" << endl;
             return -1;
         }
-        if (!isdigit(c)&&(counter==0&&c!='-'))
+        if (!isdigit(c)&&counter==0&&c!='-')
         {
             cout << "Valore inserito errato" << endl;
             return -1;
@@ -349,12 +349,12 @@ double Menu::CheckValueDouble(string cstring)
     }
     for (char c : cstring)
     {
-        if (counter != 0 && c == '-')
+        if (counter != 0 && !isdigit(c)&&c!='.')
         {
             cout << "Valore inserito errato" << endl;
             return -1;
         }
-        if (!isdigit(c)&&(counter==0&&c!='-')&&c!='.')
+        if (!isdigit(c)&&counter==0&&c!='-')
         {
             cout << "Valore inserito errato" << endl;
             return -1;
@@ -373,7 +373,7 @@ double Menu::CheckValueDouble(string cstring)
 void Menu::SelezionaFunzione()
 {
     VisualizzaFunzioni();
-    int id; // Inizio ariabili per i controlli sulle stringhe
+    int id; // Inizio variabili per i controlli sulle stringhe
     double x;
     string stdid;
     const char *stdid2;
